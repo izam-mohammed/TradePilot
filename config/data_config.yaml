@@ -1,0 +1,7 @@
+Companies:
+  Reliance: RELIANCE.NS
+
+DataFrame:
+  start: '1980-12-12'
+  end: '2020-12-12'
+  period: 1d
