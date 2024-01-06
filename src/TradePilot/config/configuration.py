@@ -7,7 +7,7 @@ class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        data_config_filepath = DATA_CONFIG_FILE_PATH,
+        data_config_filepath = PRICE_DATA_CONFIG_FILE_PATH,
         params_filepath = PARAMS_FILE_PATH,
         schema_filepath = SCHEMA_FILE_PATH,
         ):

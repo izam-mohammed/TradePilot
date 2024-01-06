@@ -6,4 +6,6 @@ yfinance==0.2.33
 ensure==1.0.2
 python-box==6.0.2
 PyYAML==6.0.1
+praw==7.7.1
+
 -e .
