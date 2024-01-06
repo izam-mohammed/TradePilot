@@ -1,19 +1,19 @@
 from TradePilot.constants import *
 from TradePilot.utils.common import create_directories, read_yaml
-from TradePilot.entity.config_entity import PriceIngestionConfig
+from TradePilot.entity.config_entity import PriceDataIngestionConfig
 
 
 class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        data_config_filepath = PRICE_DATA_CONFIG_FILE_PATH,
+        price_data_config_filepath = PRICE_DATA_CONFIG_FILE_PATH,
         params_filepath = PARAMS_FILE_PATH,
         schema_filepath = SCHEMA_FILE_PATH,
         ):
 
         self.config = read_yaml(config_filepath)
-        self.data_config = read_yaml(data_config_filepath)
+        self.data_config = read_yaml(price_data_config_filepath)
         self.params = read_yaml(params_filepath)
         self.schema = read_yaml(schema_filepath)
 
@@ -21,14 +21,14 @@ class ConfigurationManager:
 
 
     
-    def get_price_ingestion_config(self) -> PriceIngestionConfig:
+    def get_price_data_ingestion_config(self) -> PriceDataIngestionConfig:
         config = self.config.price_ingestion
         companies = self.data_config.Companies
         data_properties = self.data_config.DataFrame
 
         create_directories([config.root_dir])
 
-        price_ingestion_config = PriceIngestionConfig(
+        price_data_ingestion_config = PriceDataIngestionConfig(
             root_dir=config.root_dir,
             data_dir=config.data_dir,
             companies=companies,
@@ -37,4 +37,4 @@ class ConfigurationManager:
             period=data_properties.period,
         )
 
-        return price_ingestion_config
+        return price_data_ingestion_config

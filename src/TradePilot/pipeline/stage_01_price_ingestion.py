@@ -1,5 +1,5 @@
 from TradePilot.config.configuration import ConfigurationManager
-from TradePilot.components.price_ingestion import PriceIngestion
+from TradePilot.components.price_ingestion import PriceDataIngestion
 from TradePilot import logger
 
 STAGE_NAME = "Price Ingestion stage"
@@ -19,10 +19,10 @@ class PriceIngestionTrainingPipeline:
         Returns:
             None
         """
-        config = ConfigurationManager()
-        price_ingestion_config = config.get_price_ingestion_config()
-        price_ingestion = PriceIngestion(config=price_ingestion_config)
-        price_ingestion.download_data()
+    config = ConfigurationManager()
+    price_data_ingestion_config = config.get_price_data_ingestion_config()
+    price_data_ingestion = PriceDataIngestion(config=price_data_ingestion_config)
+    price_data_ingestion.download_data()
 
 
 if __name__ == "__main__":

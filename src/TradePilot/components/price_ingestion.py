@@ -2,11 +2,11 @@ import yfinance as yf
 import os
 from TradePilot import logger
 from TradePilot.utils.common import create_directories, save_json
-from TradePilot.entity.config_entity import PriceIngestionConfig
+from TradePilot.entity.config_entity import PriceDataIngestionConfig
 
 
-class PriceIngestion:
-    def __init__(self, config: PriceIngestionConfig) -> None:
+class PriceDataIngestion:
+    def __init__(self, config: PriceDataIngestionConfig) -> None:
         self.config = config
 
     def download_data(self):
